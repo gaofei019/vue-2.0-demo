@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <div>
+      <input type="button" value="增加" @click="increment">
+      <input type="button" value="减少" @click="decrement">
+      <input type="button" value="偶数才能增加" @click="clickOdd">
+      <input type="button" value="异步点击" @click="clickAsync">
+    </div>
+    <div>
+        现在数字为: {{count}}，它现在是{{getOdd}}
+    </div>
     <h1>{{ msg }}</h1>
     <ul>
         <li>
@@ -31,13 +40,25 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
+
 export default {
   name: 'app',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  computed:mapGetters([
+    'count',
+    'getOdd'
+  ]),
+  methods:mapActions([
+    'increment',
+    'decrement',
+    'clickOdd',
+    'clickAsync'
+  ])
 }
 </script>
 
