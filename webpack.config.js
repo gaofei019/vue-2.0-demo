@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css' //style和css顺序不能换
+        loader: 'style-loader!css-loader' //style和css顺序不能换
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
